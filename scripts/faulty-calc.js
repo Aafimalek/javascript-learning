@@ -1,10 +1,23 @@
 let rand = Math.random();
-function calc(a,b){
-  if(rand<0.1){
-     return a-b; 
-  }else{
-    return a+b;
+
+let a = prompt('enter first number');
+let c = prompt('enter operation number');
+let b = prompt('enter second number');
+
+let obj = {
+  '+': '-',
+  '*': '+',
+  '-': '/',
+  '/': '**'
+}
+
+function calc() {
+  if (rand < 0.1) {
+    alert(`the result is ${eval(`${a} ${c} ${b}`)}`);
+  } else {
+    c = obj[c];
+    alert(`the result is ${eval(`${a} ${c} ${b}`)}`);
   }
 }
-console.log(calc(10, 15)); 
+calc();
 

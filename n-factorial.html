@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Factorial</title>
+</head>
+
+<body>
+  <script>
+    function factorial(){
+    let num = prompt("Enter the number: ");
+    num = Number.parseInt(num);
+
+    if (num < 0) {
+      console.log("factorial is not defined for negative number !!");
+    }
+    let arr = []
+    for (let i = 1; i <= num; i++) {
+      arr.push(i)
+    }
+    let a = arr.reduce((a, b) => {
+      return a * b;
+    })
+    alert("Using reduce method: " + a);
+
+    
+    if (num < 0) {
+      console.log("factorial is not defined for negative number !!")
+    }
+    let fact = 1
+    for (let i1 = 1; i1 <= num; i1++) {
+      fact = fact * i1;
+    }
+    alert("Using for loop: " + fact);
+  }
+  factorial();
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Bubblinh</title>
+  <style>
+    .child{
+      margin:14px;
+      padding: 14px;
+      background-color: aliceblue;
+      border: solid 2px black;
+    }
+
+    .childcontainer{
+      margin:14px;
+      padding: 14px;
+      background-color: beige;
+    }
+
+    .container{
+      margin:14px;
+      padding: 14px;
+      background-color: rgb(231, 231, 11);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <section class="childcontainer">
+      <div class="child">
+        I am a child
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.querySelector(".child").addEventListener('click', (e) => {
+      e.stopPropagation();
+      alert( "<b> yay child was clicked</b>");
+    });
+
+    document.querySelector(".childcontainer").addEventListener('click', (e) => {
+      e.stopPropagation();
+      alert( "<b> yay childcontainer was clicked</b>");
+    });
+
+    document.querySelector(".container").addEventListener('click', (e) => {
+      e.stopPropagation();
+       alert("<b> yay container was clicked</b>");
+    });
+
+    function getRandomColor(){
+  let num1 = Math.floor((Math.random()*255));
+  let num2 = Math.floor((Math.random()*255));
+  let num3 = Math.floor((Math.random()*255));
+  return `rgb(${num1} ${num2} ${num3})`;
+}
+
+// setInterval(() => {
+//   document.querySelector(".child").style.background = getRandomColor();
+// }, 3000);
+
+setTimeout(() => {
+  document.querySelector(".child").style.background = getRandomColor();
+}, 3000);
+  </script>
+</body>
+
+</html>
